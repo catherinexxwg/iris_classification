@@ -29,7 +29,7 @@ st.subheader('User Input parameters')
 st.write(df)
 
 iris = datasets.load_iris()
-X = iris.drop('species',axis =1)
+X = iris.drop('species', axis =1)
 Y = iris.species
 
 clf = RandomForestClassifier()
@@ -39,7 +39,7 @@ prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
-st.write(['Iris-Setosa','Iris-versicolor','Iris-Virginica'])
+st.write(['Iris-setosa','Iris-versicolor','Iris-Virginica'])
 
 st.subheader('Prediction')
 st.write(prediction)
