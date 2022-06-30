@@ -28,7 +28,7 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-iris = datasets.load_iris()
+iris = pd.read_csv ('https://github.com/catherinexxwg/iris_classification/blob/main/Iris.csv')
 X = iris.drop('species', axis =1)
 Y = iris.species
 
