@@ -1,11 +1,9 @@
 import streamlit as st
 import pandas as pd
-
 from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
 # Simple Iris Flower Prediction App
-
 This app predicts the **Iris flower** type!
 """)
 
@@ -28,8 +26,10 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-iris = pd.read_csv ('https://raw.githubusercontent.com/catherinexxwg/iris_classification/main/Iris.csv')
-X = iris.drop('species', axis = 1)
+iris = pd.read_csv('https://raw.githubusercontent.com/catherinexxwg/iris_classification/main/Iris.csv')
+features_col = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
+X = iris[features_col]
+# X = iris.drop('species', axis = 1)
 Y = iris.species
 
 clf = RandomForestClassifier()
@@ -39,7 +39,7 @@ prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
-st.write(['Iris-setosa','Iris-versicolor','Iris-Virginica'])
+st.write(['Iris-setosa', 'Iris-versicolor', 'Iris-virginica'])
 
 st.subheader('Prediction')
 st.write(prediction)
